@@ -1,0 +1,10 @@
+Travel Insurance Quoter
+
+Consider a company that sells travel insurance policies. They determine the price of the policy based on the age of the traveller and the length of their trip.
+
+Build a simple rails app that uses a form to prompt for the age of the traveller and the length of their trip. Include unit tests.
+
+When the form is submitted it should redirect to a page that displays the correct price.
+
+Bonus challenge 1: change the form to prompt for the travellers date of birth and calculate their age from this.
+Bonus challenge 2: change the form to prompt for the departure and return date and calculate the length of the trip from these dates.

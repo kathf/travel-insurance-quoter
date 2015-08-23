@@ -1,0 +1,25 @@
+postgres: &postgres
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  port: 5432
+
+auth: &auth
+  username: Kath
+  password:
+
+development:
+  <<: *auth
+  <<: *postgres
+  database: travelinsurance_development
+
+test:
+  <<: *auth
+  <<: *postgres
+  database: travelinsurance_test
+
+production:
+  <<: *auth
+  <<: *postgres
+  database: travelinsurance_development
