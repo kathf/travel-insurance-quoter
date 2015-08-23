@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823011812) do
+ActiveRecord::Schema.define(version: 20150823215839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "quotes", force: :cascade do |t|
+  create_table "policies", force: :cascade do |t|
     t.integer  "age_min"
     t.integer  "age_max"
     t.integer  "trip_days_min"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150823011812) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.integer  "quote_id"
+  create_table "quotes", force: :cascade do |t|
+    t.integer  "policy_id"
     t.string   "user_reference"
     t.integer  "age"
     t.integer  "trip_days"

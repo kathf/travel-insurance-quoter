@@ -1,4 +1,4 @@
-quotes = [
+policies = [
   [18, 49, 1, 7, 50],
   [18, 49, 8, 14, 60],
   [18, 49, 15, 21, 70],
@@ -15,8 +15,8 @@ quotes = [
 
 today = Time.new(2015,8,23)
 
-quotes.each do |array|
-  Quote.create!(
+policies.each do |array|
+  Policy.create!(
     age_min: array[0],
     age_max: array[1],
     trip_days_min: array[2],
