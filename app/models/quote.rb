@@ -11,6 +11,7 @@ class Quote < ActiveRecord::Base
 
   validates :trip_days,
               numericality: {
+                less_than_or_equal_to: 365,
                 only_integer: true },
               presence: true
 

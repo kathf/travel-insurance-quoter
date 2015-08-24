@@ -11,7 +11,6 @@ class QuotesController < ApplicationController
       assign_policy
       redirect_to quote_path(@quote)
     else
-      flash.now[:error] = "Quote not valid, please try again"
       render action: "new"
     end
   end
@@ -21,7 +20,6 @@ class QuotesController < ApplicationController
       assign_policy
       redirect_to quote_path(@quote)
     else
-      flash.now[:error] = "Quote not valid, please try again"
       render "edit"
     end
   end
