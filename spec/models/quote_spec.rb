@@ -10,8 +10,6 @@ RSpec.describe Quote, type: :model do
   it { should validate_numericality_of(:trip_days).only_integer }
   it { should validate_numericality_of(:age).only_integer }
 
-  it { should validate_uniqueness_of(:user_reference) }
-
   it do
     should validate_numericality_of(:age).
       is_greater_than_or_equal_to(18).

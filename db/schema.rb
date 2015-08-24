@@ -29,12 +29,11 @@ ActiveRecord::Schema.define(version: 20150823215839) do
 
   create_table "quotes", force: :cascade do |t|
     t.integer  "policy_id"
-    t.string   "user_reference"
     t.integer  "age"
     t.integer  "trip_days"
     t.datetime "quote_date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
