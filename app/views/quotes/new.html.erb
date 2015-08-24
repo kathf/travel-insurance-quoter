@@ -1,5 +1,8 @@
 <div class="row">
   <div class="form-container col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+    <h2>Enter the following details to obtain your quote</h2>
+
     <%= simple_form_for @quote, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
       <%= f.input :age %>
       <%= f.input :trip_days %>

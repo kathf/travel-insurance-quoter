@@ -14,3 +14,9 @@
  *= require_tree .
  *= require_self
  */
+ 
+
+a.navbar-brand {
+  font-weight: 900;
+  font-size: 30px;
+}

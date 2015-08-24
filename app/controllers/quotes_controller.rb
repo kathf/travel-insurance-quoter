@@ -7,6 +7,7 @@ class QuotesController < ApplicationController
 
   def create
     @quote = Quote.create(quote_params)
+    @quote.policy = assign_policy
     if @quote.save
       redirect_to quote_path(@quote)
     else
@@ -18,6 +19,10 @@ class QuotesController < ApplicationController
   def show; end
 
   private
+
+  def assign_policy
+    PolicyCalculator.new(@quote).calculate_policy
+  end
 
   def find_quote
     @quote = Quote.find(params[:id])
