@@ -2,7 +2,6 @@ class Policy < ActiveRecord::Base
 
   has_many :quotes
 
-  validates :effective_date, presence: true
   validates :price, numericality: { greater_than: 0 }, presence: true
   validates :age_min, numericality: { only_integer: true }, presence: true
   validates :trip_days_min, numericality: { only_integer: true }, presence: true

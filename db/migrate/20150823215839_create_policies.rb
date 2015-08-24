@@ -6,7 +6,6 @@ class CreatePolicies < ActiveRecord::Migration
       t.integer :trip_days_min
       t.integer :trip_days_max
       t.money :price
-      t.timestamp :effective_date
       t.timestamps null: false
     end
   end

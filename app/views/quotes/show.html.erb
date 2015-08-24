@@ -9,10 +9,11 @@
       </div>
       <div class="panel-body">
         <p> Age:   <%= @quote.age %> </p>
-        <p> Trip length:   <%= @quote.trip_days %> days </p>
+        <p> Trip length:   <%= @quote.trip_days %> <%= 'day'.pluralize(@quote.trip_days) %> </p>
       </div>
     </div>
 
+    <%= link_to "Edit quote", edit_quote_path(@quote), class: "pull-left btn-success btn-lg" %>
 
   </div>
 </div>

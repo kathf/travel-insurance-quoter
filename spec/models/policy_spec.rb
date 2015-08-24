@@ -9,7 +9,6 @@ RSpec.describe Policy, type: :model do
   it { is_expected.to validate_presence_of(:trip_days_min) }
   it { is_expected.to validate_presence_of(:trip_days_max) }
   it { is_expected.to validate_presence_of(:price) }
-  it { is_expected.to validate_presence_of(:effective_date) }
 
   it { should validate_numericality_of(:age_max) }
   it { should validate_numericality_of(:age_min) }

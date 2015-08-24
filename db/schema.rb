@@ -21,10 +21,9 @@ ActiveRecord::Schema.define(version: 20150823215839) do
     t.integer  "age_max"
     t.integer  "trip_days_min"
     t.integer  "trip_days_max"
-    t.money    "price",          scale: 2
-    t.datetime "effective_date"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.money    "price",         scale: 2
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "quotes", force: :cascade do |t|

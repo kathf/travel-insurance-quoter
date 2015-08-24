@@ -1,0 +1,10 @@
+<div class="row">
+  <h2 class="form-header text-center">Enter the following details to obtain your quote</h2>
+  <div class="form-container col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+    <%= simple_form_for @quote, html: { class: "form-horizontal"}, wrapper: :horizontal_form do |f| %>
+      <%= f.input :age %>
+      <%= f.input :trip_days %>
+      <%= f.button :submit, "Get Quote", class: "pull-right btn-success btn-lg" %>
+    <% end %>
+  </div>
+</div>
