@@ -4,7 +4,6 @@ class CreateQuotes < ActiveRecord::Migration
       t.references :policy
       t.integer :age
       t.integer :trip_days
-      t.timestamp :quote_date
       t.timestamps null: false
       t.timestamps null: false
     end
