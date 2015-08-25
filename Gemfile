@@ -23,6 +23,8 @@ end
 group :test do
   gem 'simplecov', require: false
   gem 'factory_girl_rails'
+  gem 'faker', '~> 1.5.0'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 group :development, :test do

@@ -1,15 +1,26 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the QuotesHelper. For example:
-#
-# describe QuotesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe QuotesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe '#trip_days' do
+    let(:dob)       { Time.now - 40.years }
+    let(:t_start)   { Time.now + 18.days }
+    let(:t_end)     { Time.now + 38.days }
+    let(:quote)     { Quote.create(dob: dob, trip_end: t_end, trip_start: t_start) }
+
+    specify 'that trip length is returned in days as integer' do
+      expect( trip_days(quote) ).to eq(20)
+    end
+  end
+
+  describe '#age_years' do
+    let(:dob)       { Time.now - 40.years }
+    let(:t_start)   { Time.now + 18.days }
+    let(:t_end)     { Time.now + 38.days }
+    let(:quote)     { Quote.create(dob: dob, trip_end: t_end, trip_start: t_start) }
+
+    specify 'that age returned in years as integer' do
+      expect( age_years(quote) ).to eq(40)
+    end
+  end
 end

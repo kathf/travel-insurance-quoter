@@ -1,33 +1,37 @@
 class Quote < ActiveRecord::Base
 
   belongs_to :policy
-
-  validate :validate_dob, :validate_future_trip_date, :validate_end_date_after_start_date, :validate_trip_length
+  delegate :price, to: :policy
 
   validates :dob, presence: true
   validates :trip_start, presence: true
   validates :trip_end, presence: true
 
-  def validate_dob
-    if !(18..69).include?(age)
+  validate :validate_dob_within_range,
+           :validate_future_trip_date,
+           :validate_end_date_after_start_date,
+           :validate_trip_length
+
+  def validate_dob_within_range
+    if !dob || !(18..69).include?(age)
       errors.add(:dob, "We only provide insurance policies for people aged 18 to 69.")
     end
   end
 
   def validate_future_trip_date
-    if trip_start < Time.now
+    if !trip_start || trip_start < Time.now
       errors.add(:trip_start, "Please select a trip start date in the future.")
     end
   end
 
   def validate_end_date_after_start_date
-    if trip_start > trip_end
+    if !trip_start || trip_start > trip_end
       errors.add(:trip_end, "Please select a trip end date BEFORE the start date.")
     end
   end
 
   def validate_trip_length
-    if trip_days > 365
+    if !trip_start || !trip_end || trip_days > 365
       errors.add(:trip_end, "We only provide insurance policies for trips less than 365 days.")
     end
   end

@@ -35,7 +35,11 @@ RSpec.describe QuotesController, type: :controller do
     end
 
     context 'invalid attributes' do
-      let(:attrs) { { age: '', trip_days: '' } }
+      let(:attrs) { { dob: '', trip_start: '', trip_end: '' } }
+
+      specify 'that' do
+        # expect { Authentication.create_with_omniauth!(nil, nil) }.to raise_error
+      end
 
       specify 'that a quote is NOT created' do
         expect { post :create, quote: attrs }.to_not change { Quote.count }
@@ -49,7 +53,7 @@ RSpec.describe QuotesController, type: :controller do
   end
 
   describe '#show' do
-    let(:quote) { Quote.create(age: 20, trip_days: 20) }
+    let(:quote) { Quote.create(dob: 35.years.ago, trip_start: 20.days.from_now, trip_end: 40.days.from_now) }
     let(:policy) { create(:policy) }
 
     before do
@@ -66,11 +70,11 @@ RSpec.describe QuotesController, type: :controller do
 
   describe '#update' do
     context 'valid attributes' do
-      let!(:quote)  { Quote.create(age: 40, trip_days: 67) }
-      let(:attrs)   { { age: 19, trip_days: 23 } }
+      let!(:quote)  { Quote.create(dob: 40.years.ago, trip_start: 67.days.from_now, trip_end: 68.days.from_now) }
+      let(:attrs)   { { dob: 35.years.ago, trip_start: 20.days.from_now, trip_end: 40.days.from_now } }
 
       specify 'that a quote is updated' do
-        expect { put :update, id: quote.id, quote: attrs }.to change { Quote.find(quote.id).age }
+        expect { put :update, id: quote.id, quote: attrs }.to change { Quote.find(quote.id).dob }
       end
 
       specify 'that the user is redirected' do
@@ -81,10 +85,10 @@ RSpec.describe QuotesController, type: :controller do
 
     context 'invalid attributes' do
       let!(:quote) { create(:quote) }
-      let(:attrs) { { age: '', trip_days: '' } }
+      let(:attrs) { { dob: '', trip_start: '', trip_end: '' } }
 
       specify 'that a quote is NOT updated' do
-        expect { post :update, id: quote.id, quote: attrs }.to_not change { quote.age }
+        expect { post :update, id: quote.id, quote: attrs }.to_not change { quote.dob }
       end
 
       specify 'that the form is rendered again' do

@@ -7,7 +7,7 @@ class QuotesController < ApplicationController
 
   def create
     @quote = Quote.create(quote_params)
-    if @quote.save
+    if @quote.persisted?
       assign_policy
       redirect_to quote_path(@quote)
     else
