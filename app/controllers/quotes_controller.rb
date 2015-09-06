@@ -36,6 +36,6 @@ class QuotesController < ApplicationController
   end
 
   def quote_params
-    params.require(:quote).permit(:age, :trip_days)
+    params.require(:quote).permit(:dob, :trip_start, :trip_end)
   end
 end

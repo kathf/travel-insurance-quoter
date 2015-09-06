@@ -4,16 +4,13 @@ RSpec.describe Quote, type: :model do
 
   it { is_expected.to belong_to(:policy) }
 
-  it { is_expected.to validate_presence_of(:age) }
-  it { is_expected.to validate_presence_of(:trip_days) }
+  it { is_expected.to validate_presence_of(:dob) }
+  it { is_expected.to validate_presence_of(:trip_start) }
+  it { is_expected.to validate_presence_of(:trip_end) }
 
-  it { should validate_numericality_of(:trip_days).only_integer }
-  it { should validate_numericality_of(:age).only_integer }
-
-  it do
-    should validate_numericality_of(:age).
-      is_greater_than_or_equal_to(18).
-      is_less_than_or_equal_to(69)
-  end
+  it { is_expected.to callback(:validate_dob_within_range).before(:validate) }
+  it { is_expected.to callback(:validate_future_trip_date).before(:validate) }
+  it { is_expected.to callback(:validate_end_date_after_start_date).before(:validate) }
+  it { is_expected.to callback(:validate_trip_length).before(:validate) }
 
 end

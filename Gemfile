@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem "better_errors"
@@ -22,6 +23,8 @@ end
 group :test do
   gem 'simplecov', require: false
   gem 'factory_girl_rails'
+  gem 'faker', '~> 1.5.0'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 group :development, :test do
