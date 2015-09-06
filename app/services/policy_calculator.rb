@@ -6,8 +6,7 @@ class PolicyCalculator
   end
 
   def calculate_policy
-    res = Policy.within_age_range(@age).within_days_range(@trip_days)
-    return res[0]
+    Policy.within_age_range(@age).within_days_range(@trip_days).first
   end
 
 end

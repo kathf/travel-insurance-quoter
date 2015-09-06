@@ -1,6 +1,7 @@
 class Quote < ActiveRecord::Base
 
   belongs_to :policy
+  delegate :price, to: :policy
 
   validates :age,
               numericality: {

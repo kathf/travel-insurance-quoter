@@ -1,24 +1,18 @@
 policies = [
-  [18, 49, 1, 7, 50],
-  [18, 49, 8, 14, 60],
-  [18, 49, 15, 21, 70],
-  [18, 49, 22, 365, 82],
-  [50, 59, 1, 7, 60],
-  [50, 59, 8, 14, 73],
-  [50, 59, 15, 21, 80],
-  [50, 59, 22, 365, 90],
-  [60, 69, 1, 7, 70],
-  [60, 69, 8, 14, 80],
-  [60, 69, 15, 21, 90],
-  [60, 69, 22, 365, 100]
+  {"id"=>1, "age_min"=>18, "age_max"=>49, "trip_days_min"=>1, "trip_days_max"=>7, "price"=> 50},
+  {"id"=>2, "age_min"=>18, "age_max"=>49, "trip_days_min"=>8, "trip_days_max"=>14, "price"=> 60},
+  {"id"=>3, "age_min"=>18, "age_max"=>49, "trip_days_min"=>15, "trip_days_max"=>21, "price"=> 70},
+  {"id"=>4, "age_min"=>18, "age_max"=>49, "trip_days_min"=>22, "trip_days_max"=>365, "price"=> 82},
+  {"id"=>5, "age_min"=>50, "age_max"=>59, "trip_days_min"=>1, "trip_days_max"=>7, "price"=> 60},
+  {"id"=>6, "age_min"=>50, "age_max"=>59, "trip_days_min"=>8, "trip_days_max"=>14, "price"=> 73},
+  {"id"=>7, "age_min"=>50, "age_max"=>59, "trip_days_min"=>15, "trip_days_max"=>21, "price"=> 80},
+  {"id"=>8, "age_min"=>50, "age_max"=>59, "trip_days_min"=>22, "trip_days_max"=>365, "price"=> 90},
+  {"id"=>9, "age_min"=>60, "age_max"=>69, "trip_days_min"=>1, "trip_days_max"=>7, "price"=> 70},
+  {"id"=>10, "age_min"=>60, "age_max"=>69, "trip_days_min"=>8, "trip_days_max"=>14, "price"=> 80},
+  {"id"=>11, "age_min"=>60, "age_max"=>69, "trip_days_min"=>15, "trip_days_max"=>21, "price"=> 90},
+  {"id"=>12, "age_min"=>60, "age_max"=>69, "trip_days_min"=>22, "trip_days_max"=>365, "price"=>100 }
 ]
 
-policies.each do |array|
-  Policy.create!(
-    age_min: array[0],
-    age_max: array[1],
-    trip_days_min: array[2],
-    trip_days_max: array[3],
-    price: array[4]
-  )
+policies.each do |hash|
+  Policy.create!(hash)
 end
